@@ -34,6 +34,9 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
+  # Suppress RSpec warnings about potential false positives
+  RSpec::Expectations.configuration.on_potential_false_positives = :nothing
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
