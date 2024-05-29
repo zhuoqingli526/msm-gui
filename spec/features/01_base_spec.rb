@@ -20,7 +20,7 @@ describe "/directors/youngest" do
     
     fourth_director = Director.new
     fourth_director.name = "Wes Anderson"
-    fourth_director.dob = nil
+    fourth_director.dob = 40.years.ago
     fourth_director.save
 
     visit "/directors/youngest"
@@ -57,7 +57,7 @@ describe "/directors/eldest" do
     
     fourth_director = Director.new
     fourth_director.name = "Wes Anderson"
-    fourth_director.dob = nil
+    fourth_director.dob = 40.years.ago
     fourth_director.save
 
     visit "/directors/eldest"
