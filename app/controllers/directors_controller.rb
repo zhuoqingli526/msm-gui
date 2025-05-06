@@ -1,15 +1,42 @@
 class DirectorsController < ApplicationController
 
   def create
-    d = Director.new
-    d.name = params.fetch("the_name")
-    d.dob =params.fetch("the_dob")
-    d.bio = params.fetch("the_bio")
-    d.image = params.fetch("the_image")
+    d_id = Director.new
+    d_id.name = params.fetch("the_name")
+    d_id.dob =params.fetch("the_dob")
+    d_id.bio = params.fetch("the_bio")
+    d_id.image = params.fetch("the_image")
 
-    d.save
+    d_id.save
 
     redirect_to("/directors")
+  end
+
+  def destroy
+    director_id = params.fetch("an_id")
+    matching_records = Director.where({ :id => director_id})
+    the_director = matching_records.at(0)
+    the_director.destroy
+
+    redirect_to("/directors")
+  end
+
+  def update
+
+    # {"the_name"=>"John Crowleysdsa", "the_dob"=>"", "the_bio"=>"John Crowley (born 1969) is an Irish award-winning television director, theatre and film director. He is perhaps best known for his feature film debut Intermission (2003).", "the_image"=>"https://image.tmdb.org/t/p/w500/2s24bopQ131ZTF3lrBLRFKMHPQG.jpg", "an_id"=>"77269"}
+
+    d_id = params.fetch("an_id")
+    matching_records = Director.where({ :id => d_id})
+    the_director = matching_records.at(0)
+
+    the_director.name = params.fetch("the_name")
+    the_director.dob =params.fetch("the_dob")
+    the_director.bio = params.fetch("the_bio")
+    the_director.image = params.fetch("the_image")
+
+    the_director.save
+
+    redirect_to("/directors/#{d_id}")
   end
 
 
