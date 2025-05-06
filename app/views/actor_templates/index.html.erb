@@ -2,6 +2,34 @@
   List of all actors
 </h1>
 
+
+<hr>
+  <form action="/create_actor" method="post">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" name="the_name">
+    </div>
+
+    <div>
+      <label for="dob">Dob</label>
+      <input id="dob" type="date" name="the_dob">
+    </div>
+
+    <div>
+      <label for="bio">Bio</label>
+      <textarea id="bio" name="the_bio" rows="3"></textarea>
+    </div>
+
+    <div>
+      <label for="image">Image</label>
+      <input id="image" type="text" name="the_image">
+    </div>
+
+    <button>Create actor</button>
+  </form>
+</hr>
+
+
 <hr>
 
 <table border="1">

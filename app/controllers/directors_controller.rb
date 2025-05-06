@@ -1,13 +1,13 @@
 class DirectorsController < ApplicationController
 
   def create
-    d_id = Director.new
-    d_id.name = params.fetch("the_name")
-    d_id.dob =params.fetch("the_dob")
-    d_id.bio = params.fetch("the_bio")
-    d_id.image = params.fetch("the_image")
+    d = Director.new
+    d.name = params.fetch("the_name")
+    d.dob =params.fetch("the_dob")
+    d.bio = params.fetch("the_bio")
+    d.image = params.fetch("the_image")
 
-    d_id.save
+    d.save
 
     redirect_to("/directors")
   end
