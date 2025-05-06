@@ -38,4 +38,22 @@ class MoviesController < ApplicationController
 
   end
 
+  def destroy
+    # Retrieve the user's inputs from params
+    # Parameters: {"the_title"=>"d", "the_year"=>"w", "the_duration"=>"q", "the_description"=>"2", "the_image"=>"w", "the_director_id"=>"2"}
+    # Create a record in the movie table
+    # populate each column with the user input
+    # Save
+
+    # redirect the user back to the /movies URL
+    the_id = params.fetch("an_id")
+
+    matching_records = Movie.where({ :id => the_id})
+
+    the_movie = matching_records.at(0)
+
+    the_movie.destroy
+
+    redirect_to("/movies")
+  end
 end
